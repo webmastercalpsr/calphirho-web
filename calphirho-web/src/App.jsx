@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Fall2024 from './pages/Fall2024/Fall2024';
+import AcceptedMajors from './pages/AcceptedMajors/AcceptedMajors';
+import Involvement from './pages/Involvement/Involvement';
+import FAQs from './pages/FAQs/FAQs';
+import MeettheSisters from './pages/MeettheSisters/MeettheSisters';
+import ExecutiveBoard from './pages/ExecutiveBoard/ExecutiveBoard';
+import LighttheNight from './pages/LighttheNight/LighttheNight';
+import BerkeleyProject from './pages/BerkeleyProject/BerkeleyProject';
+import BerkeleyYouthAlternative from './pages/BerkeleyYouthAlternative/BerkeleyYouthAlternative';
+import Events from './pages/Events/Events';
+import Contact from './pages/Contact/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/fall2024" element={<Fall2024 />} />
+        <Route path="/accepted-majors" element={<AcceptedMajors />} />
+        <Route path="/involvement" element={<Involvement />} />
+        <Route path="/faqs" element={<FAQs />}/>
+        <Route path="/meet-the-sisters" element={<MeettheSisters />}/>
+        <Route path="/executive-board" element={<ExecutiveBoard />}/>
+        <Route path="/light-the-night" element={<LighttheNight />}/>
+        <Route path="/berkeley-project" element={<BerkeleyProject />}/>
+        <Route path="/berkeley-youth-alternatives" element={<BerkeleyYouthAlternative />}/>
+        <Route path="/events" element={<Events />}/>
+        <Route path="/contact" element={<Contact />}/>
 
-export default App
+        
+
+
+
+        {/* Add other routes as needed */}
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;
